@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм (простой)»
 
-* Студент: [Натали Эрбет](https://up.htmlacademy.ru/javascript/27/user/998653).
-* Наставник: `Неизвестно`.
+- Студент: [Натали Эрбет](https://up.htmlacademy.ru/javascript/27/user/998653).
+- Наставник: [Роман Марченко] (https://github.com/Kirkusik).
 
 ---
 
