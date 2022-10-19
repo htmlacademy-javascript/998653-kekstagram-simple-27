@@ -46,6 +46,20 @@ const DESCRIPTON_PHOTO = [
   "Всегда помните: вы живете только один раз.",
   "Улыбка — красивая кривая, которая делает мир прочнее.",
 ];
+// последовательность из чисел, которые идут один за другим
+const arr = [];
+for (let i = ARRAY_MIN - 1; i <= ARRAY_MAX - 1; i++) {
+  arr[i] = arr.push(i);
+}
+
+createIdValue = () => {
+  arr.forEach((currentValue) => {
+    return currentValue;
+  });
+};
+const id = createIdValue();
+console.log(id);
+
 // создаем функцию, которая будет возвращать случайный элемент из переданного в нее массива
 getRandomElementArray = (elements) => {
   return elements[getRandomPositiveInteger(0, elements.length - 1)];
@@ -70,5 +84,3 @@ const PhotosFor = [];
 for (let i = 0; i < ARRAY_LENGTH; i++) {
   PhotosFor[i] = PhotosFor.push(createPhoto);
 }
-console.log(PhotosFor);
-
