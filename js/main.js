@@ -12,13 +12,23 @@ function getRandomPositiveInteger(a, b) {
 function checkStringLength(string, length) {
   return string.length <= length;
 }
-const ARRAY_MIN = 1;
-const ARRAY_MAX = 25;
-const LIKES_MIN = 15;
-const LIKES_MAX = 200;
-const COMMENT_MIN = 0;
-const COMMENT_MAX = 200;
+const ARRAY_COUNT = {
+  min: 1,
+  max: 25,
+};
+
+const LIKES_COUNT = {
+  min: 15,
+  max: 200,
+};
+
+const COMMENT_COUNT = {
+  min: 0,
+  max: 200,
+};
+
 const ARRAY_LENGTH = 4;
+
 const DESCRIPTON_PHOTO = [
   "Даже близкие не читают мысли. Выражать чувства — твоя отвественность",
   "То чувство, когда ты родился красавчиком 😎",
@@ -46,6 +56,17 @@ const DESCRIPTON_PHOTO = [
   "Всегда помните: вы живете только один раз.",
   "Улыбка — красивая кривая, которая делает мир прочнее.",
 ];
+
+// создадим масисив из последавательности чисел от 1 до 25
+const arrIndex = [];
+for (let i = ARRAY_COUNT.min - 1; i < ARRAY_COUNT.max; i++) {
+  arrIndex[i] = arrIndex.push(i + 1);
+}
+console.log(arrIndex);
+
+// уберем скобки - используем spread -синтаксис
+// arr = Math.floor(...arrIndex);
+
 // создаем функцию, которая будет возвращать случайный элемент из переданного в нее массива
 getRandomElementArray = (elements) => {
   return elements[getRandomPositiveInteger(0, elements.length - 1)];
@@ -54,21 +75,22 @@ getRandomElementArray = (elements) => {
 // функция для создания шаблона фотографии
 const createPhoto = () => {
   return {
-    id: getRandomPositiveInteger(ARRAY_MIN, ARRAY_MAX),
-    url: `photos/${getRandomPositiveInteger(ARRAY_MIN, ARRAY_MAX)}.jpg`,
+    id: getRandomPositiveInteger(ARRAY_COUNT.min, ARRAY_COUNT.max), // или function(...arrIndex), которая присваивает id каждый аргумет последовательно
+    url: `photos/${getRandomPositiveInteger(ARRAY_COUNT.min, ARRAY_COUNT.max)}.jpg`,
     description: getRandomElementArray(DESCRIPTON_PHOTO),
-    likes: getRandomPositiveInteger(LIKES_MIN, LIKES_MAX),
-    coments: getRandomPositiveInteger(COMMENT_MIN, COMMENT_MAX),
+    likes: getRandomPositiveInteger(LIKES_COUNT.min, LIKES_COUNT.max),
+    coments: getRandomPositiveInteger(COMMENT_COUNT.min, COMMENT_COUNT.max),
   };
 };
 
 //создадим 25 элементов массива с фото . Используем метод Aray.from. Первый аргумент - итерируемый объект, который будет преоразован в массив. Второй - функция, которая будет вызвана для каждого элемента массива. Генерируем последовательность объектов.
 const createPhotosArr = Array.from({ length: ARRAY_LENGTH }, createPhoto); //почему не createPhoto()??
+console.log(createPhotosArr);
 
 //или РАЗОБРАТЬ ПОЧЕМУ НЕ СРАБОТАЛО
-const PhotosFor = [];
+const PhotosFor = []; // все работает))
+
 for (let i = 0; i < ARRAY_LENGTH; i++) {
   PhotosFor[i] = PhotosFor.push(createPhoto);
 }
-console.log(PhotosFor);
-
+git 
