@@ -56,13 +56,8 @@ const createPhoto = (index) => ({
   coments: getRandomPositiveInteger(COMMENT_COUNT.min, COMMENT_COUNT.max),
 });
 
-const getPhotoArray = Array.from(
-  { length: ARRAY_LENGTH },
-  (curretValue, index) => {
-    createPhoto(index + 1);
-  }
+const photosArr = Array.from({ length: ARRAY_LENGTH }, (curretValue, index) =>
+  createPhoto(index + 1)
 );
 
-export { getPhotoArray };
-
-
+export { photosArr };
