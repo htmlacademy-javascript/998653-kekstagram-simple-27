@@ -4,6 +4,7 @@ import { photosArr } from "./data.js";
 const templateElement = document
   .querySelector("#success")
   .content.querySelector(".success");
+console.log(templateElement);
 
 // список куда будем вставлять скопированные элементы
 const picturesList = document.querySelector(".pictures");
@@ -25,4 +26,3 @@ photosArrs.forEach((photo) => {
 });
 
 picturesList.appendChild(photoFragment);
-
