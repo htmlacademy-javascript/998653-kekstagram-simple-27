@@ -1,4 +1,2 @@
-import "./data.js";
-import "./game.js";
-import "./setup.js";
-import "./picture.js";
+import { pictures } from './picture.js';
+import './form.js';
