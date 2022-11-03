@@ -27,7 +27,9 @@
             <!-- Изначальное состояние поля для загрузки изображения -->
             <fieldset class="img-upload__start">
               <input type="file" id="upload-file" class="img-upload__input  visually-hidden" name="filename" required
-                required: minlength="20" , maxlength="140" });>
+                minlength="20" maxlength="140" data-pristine-required-message="Обязательное поле"
+                data-pristine-minlength-message="Минимальная длина 20 символа"
+                data-pristine-maxlength-message="Максимальная длина 140 символов">
               <label for="upload-file" class="img-upload__label  img-upload__control">Загрузить</label>
             </fieldset>
 

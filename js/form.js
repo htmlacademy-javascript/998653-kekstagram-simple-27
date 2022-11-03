@@ -25,6 +25,8 @@ const CloseModal = ()=> {
     formChangeImage.classList.add('hidden');
     body.classList.remove('modal-open');
 
+    //при закрытии формы дополнительно необходимо сбрасывать значение поля выбора файла #upload-file
+
 
   }
 
@@ -59,7 +61,7 @@ document.addEventListener('keydown', (evt) => {
 const comment = document.querySelector('.text__description');
 const textDescriptionComment = comment.value;
 
-//проверка на длину коммента
-const pristine = new Pristine (comment, {}
+//проверка на длину коммента -указали в разметке
+
 
 
