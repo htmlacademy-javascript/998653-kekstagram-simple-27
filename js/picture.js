@@ -17,9 +17,7 @@ const createPictures = (array) => {
       photo.comentcs;
     photoFragment.appendChild(photoElement);
   });
+  picturesList.append(photoFragment);
 };
 
-const pictures = createPictures(photosArr);
-console.log(pictures);
-
-export { pictures };
+export { createPictures };

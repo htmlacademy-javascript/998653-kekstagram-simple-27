@@ -18,3 +18,7 @@ const getRandomElementArray = (elements) =>
 
 export { getRandomPositiveInteger };
 export { getRandomElementArray };
+
+// проверка, что кнопка Esc
+const isKeyDownEsc = (evt) => evt.keyCode === 27;
+export { isKeyDownEsc };

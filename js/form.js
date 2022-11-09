@@ -1,67 +1,37 @@
+import { isKeyDownEsc } from './util.js';
+
+const closeImgButton = document.querySelector('#upload-cancel');
 const body = document.querySelector('body');
+const imgEditForm = document.querySelector('.img-upload__overlay');
+const fileLoad = document.querySelector('#upload-file');
+const commetTextField = document.querySelector('.text__description');
+const openFormChangeImg = () => {
+  body.classList.add('.modal-open');
+  imgEditForm.classList.remove('hidden');
+  document.addEventListener('keydown', onEscKeyDown);
+};
+const isTextComment = () => document.activeElement === commetTextField;
 
-// поле для загрузки изображения
-const uploadFile = document.querySelector('#upload-file');
-
-//  форма редактирования изображения
-const formChangeImage = document.querySelector('.img-upload__overlay');
-
-// кнопка "Загрузить"
-const upLoadButton = document.querySelector('.img-upload__label');
-
-//кнопка закрытия окна
-const upLoadCancelButton = document.querySelector('#upload-cancel');
-
-//универсальная foo для проверки нажатия esc
-const isKeyEsc = (evt) => evt.key === 'Escape';
-
-const openModal = (evt) => {
-  formChangeImage.classList.remove('hidden');
-  body.classList.add('modal-open');
+const closeFormChangeImg = () => {
+  // eslint-disable-next-line no-undef
+  form.reset();
+  body.classList.remove('modal-open');
+  imgEditForm.classList.add('hidden');
+  document.removeEventListener('keydown', onEscKeyDown);
 };
 
-
-const CloseModal = ()=> {
-    formChangeImage.classList.add('hidden');
-    body.classList.remove('modal-open');
-
-    //при закрытии формы дополнительно необходимо сбрасывать значение поля выбора файла #upload-file
-
-
-  }
-
-
-//нажатие на клавишу esc
- const onPopupEscDown (evt) => {
-  if(isKeyEsc) {
+function onEscKeyDown(evt) {
+  if (isKeyDownEsc && !isTextComment()) {
     evt.preventDefault();
-    CloseModal();
-  }
-};
 
-// загрузка изображения  = нажатие на кнопку "Загрузить"? =>  появление формы редактирования изб?
-upLoadButton.addEventListener('click', (evt) => {
-  openModal();
+    closeFormChangeImg();
+  }
+}
+
+fileLoad.addEventListener('change', () => {
+  openFormChangeImg();
 });
 
-
-// закрытие окна
-upLoadCancelButton.addEventListener('click', (evt) => {
-  CloseModal();
- });
-
-document.addEventListener('keydown', (evt) => {
-  onPopupEscDown();
-})
-
-//очистка всех полей формы???
-
- // валидация поля комментарии
-
-const comment = document.querySelector('.text__description');
-const textDescriptionComment = comment.value;
-
-//проверка на длину коммента -указали в разметке
-
-
-
+closeImgButton.addEventListener('click', () => {
+  closeFormChangeImg();
+});
