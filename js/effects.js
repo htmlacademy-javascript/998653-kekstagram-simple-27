@@ -46,7 +46,8 @@ const onSliderUpdate = () => {
   }
   const sliderValue = sliderElement.noUiSlider.get();
   imgPreview.classList.add(`effects__preview--${chosenEffect.name}`);
-  imgPreview.style.filter = `${chosenEffect.style}(${sliderValue})`; //filter: invert(0..100%) с шагом 1%; ??
+  imgPreview.style.filter = `${chosenEffect.style}(${sliderValue}${chosenEffect.unit})`; //filter: invert(0..100%) с шагом 1%; ??
+  effectLevel.value = sliderValue;
 };
 
 noUiSlider.create(sliderElement, {
@@ -58,11 +59,13 @@ noUiSlider.create(sliderElement, {
   step: DEFAULT_EFFECT.step,
   connect: 'lower',
 });
+updateSlider();
 
 form.addEventListener('change', onFormChange);
+sliderElement.noUiSlider.on('update', onSliderUpdate);
 
 const resetEffects = () => {
   chosenEffect = DEFAULT_EFFECT;
 };
 
-//эффект не срабатывает при повторном нажатии на изображение
+export { resetEffects };
