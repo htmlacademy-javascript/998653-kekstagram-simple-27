@@ -1,4 +1,5 @@
 import { isKeyDownEsc } from './util.js';
+import { resetScale } from './scale.js';
 
 const closeImgButton = document.querySelector('#upload-cancel');
 const body = document.querySelector('body');
@@ -13,8 +14,8 @@ const openFormChangeImg = () => {
 const isTextComment = () => document.activeElement === commetTextField;
 
 const closeFormChangeImg = () => {
-  // eslint-disable-next-line no-undef
   form.reset();
+  resetScale();
   body.classList.remove('modal-open');
   imgEditForm.classList.add('hidden');
   document.removeEventListener('keydown', onEscKeyDown);
