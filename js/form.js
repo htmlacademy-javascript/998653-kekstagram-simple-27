@@ -1,6 +1,6 @@
 import { isKeyDownEsc } from './util.js';
 import { resetScale } from './scale.js';
-
+const form = document.querySelector('#upload-select-image');
 const closeImgButton = document.querySelector('#upload-cancel');
 const body = document.querySelector('body');
 const imgEditForm = document.querySelector('.img-upload__overlay');
