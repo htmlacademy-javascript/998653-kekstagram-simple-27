@@ -1,5 +1,3 @@
-import { photosArr } from './data.js';
-
 const templateElement = document
   .querySelector('#picture')
   .content.querySelector('.picture');
