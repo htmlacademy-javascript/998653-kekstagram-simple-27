@@ -2,17 +2,16 @@ const templateElement = document
   .querySelector('#picture')
   .content.querySelector('.picture');
 
-const createPictures = (array) => {
+const createPictures = (photos) => {
   const picturesList = document.querySelector('.pictures');
   const photoFragment = document.createDocumentFragment();
 
-  array.forEach((photo) => {
+  photos.forEach(({ url, description, likes, comentcs }) => {
     const photoElement = templateElement.cloneNode(true);
-    photoElement.querySelector('.picture__img').src = photo.url;
-    photoElement.querySelector('.picture__img').alt = photo.description;
-    photoElement.querySelector('.picture__likes').textContent = photo.likes;
-    photoElement.querySelector('.picture__comments').textContent =
-      photo.comentcs;
+    photoElement.querySelector('.picture__img').src = url;
+    photoElement.querySelector('.picture__img').alt = description;
+    photoElement.querySelector('.picture__likes').textContent = likes;
+    photoElement.querySelector('.picture__comments').textContent = comentcs;
     photoFragment.appendChild(photoElement);
   });
   picturesList.append(photoFragment);

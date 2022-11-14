@@ -1,7 +1,7 @@
 import { EFFECTS } from './data.js';
 const form = document.querySelector('.img-upload__form');
 const inputEffectRadio = document.querySelector('.effects__radio');
-const imgPreview = document.querySelector('.img-upload__preview');
+const imgPreview = document.querySelector('img');
 const sliderElement = document.querySelector('.effect-level__slider');
 const effectLevel = document.querySelector('.effect-level__value');
 const DEFAULT_EFFECT = EFFECTS[0];
@@ -59,7 +59,6 @@ noUiSlider.create(sliderElement, {
   step: DEFAULT_EFFECT.step,
   connect: 'lower',
 });
-updateSlider();
 
 form.addEventListener('change', onFormChange);
 sliderElement.noUiSlider.on('update', onSliderUpdate);
@@ -69,3 +68,4 @@ const resetEffects = () => {
 };
 
 export { resetEffects };
+export { updateSlider };
