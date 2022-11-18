@@ -8,14 +8,16 @@ const DEFAULT_EFFECT = EFFECTS[0];
 let chosenEffect = DEFAULT_EFFECT;
 const isDefault = () => chosenEffect === DEFAULT_EFFECT;
 
+//первоначальное(изначальное) значение слайдера по умолчанию?
+
 const updateSlider = () => {
-  sliderElement.classList.remove('hidden'); // не убирается класс??
+  sliderElement.classList.remove('hidden');
   sliderElement.noUiSlider.updateOptions({
     range: {
       min: chosenEffect.min,
       max: chosenEffect.max,
     },
-    start: chosenEffect.max,
+    start: chosenEffect.min,
     step: chosenEffect.step,
   });
   if (isDefault()) {
@@ -26,6 +28,7 @@ const updateSlider = () => {
 // переключение фильтров
 inputEffectRadio.addEventListener('change', () => {
   imgPreview.classList.add('effects__preview--chrome');
+  effectLevel.value = '0';
 });
 
 const onFormChange = (evt) => {
@@ -46,7 +49,7 @@ const onSliderUpdate = () => {
   }
   const sliderValue = sliderElement.noUiSlider.get();
   imgPreview.classList.add(`effects__preview--${chosenEffect.name}`);
-  imgPreview.style.filter = `${chosenEffect.style}(${sliderValue}${chosenEffect.unit})`; //filter: invert(0..100%) с шагом 1%; ??
+  imgPreview.style.filter = `${chosenEffect.style}(${sliderValue}${chosenEffect.unit})`;
   effectLevel.value = sliderValue;
 };
 
@@ -65,6 +68,7 @@ sliderElement.noUiSlider.on('update', onSliderUpdate);
 
 const resetEffects = () => {
   chosenEffect = DEFAULT_EFFECT;
+  imgPreview.style.filter = 'none';
 };
 
 export { resetEffects };

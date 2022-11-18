@@ -1,35 +1,34 @@
-import { showAlert } from './util.js';
+const GETURL = 'https://27.javascript.pages.academy/kekstagram-simple/data';
+const SETURL = 'https://27.javascript.pages.academy/kekstagram-simple';
 
 // получим данные (загруженные фото) с удаленного сервера
-const getData = (onSuccess) => {
-  fetch('https://27.javascript.pages.academy/kekstagram-simple/data', {
-    credentials: 'same-origin',
-  })
-    .then((response) => response.json())
-    .then((photos) => {
-      onSuccess(photos);
-    })
-    .catch(() => {
-      showAlert(
-        'При загрузке с сервера произошла ошибка запроса! Попробуйте еще раз'
-      );
-    });
+const getData = async (onSuccess, onFail) => {
+  try {
+    const response = await fetch(GETURL);
+    if (!response.ok) {
+      throw new Error('Не удалось получить данные!');
+    }
+
+    const offers = await response.json();
+    onSuccess(offers);
+  } catch (error) {
+    onFail(error);
+  }
 };
 
-const sendData = (onSuccess, onFail, body) => {
-  fetch(' https://27.javascript.pages.academy/kekstagram-simple ', {
-    method: 'POST',
-    body,
-  })
-    .then((response) => {
-      if (response.ok) {
-        onSuccess();
-      }
-      onFail('Попробуйте еще раз');
-    })
-    .catch(() => {
-      onFail('Попробуйте еще раз');
+const sendData = async (onSuccess, onFail, body) => {
+  try {
+    const response = await fetch(SETURL, {
+      method: 'POST',
+      body,
     });
-};
 
+    if (!response.ok) {
+      throw new Error('Не удалось отправить форму попробуйте еще раз');
+    }
+    onSuccess();
+  } catch (error) {
+    onFail(error);
+  }
+};
 export { getData, sendData };

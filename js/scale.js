@@ -5,7 +5,7 @@
 const smallerButton = document.querySelector('.scale__control--smaller');
 const biggerButton = document.querySelector('.scale__control--bigger');
 const inputScaleValue = document.querySelector('.scale__control--value');
-const imgPreview = document.querySelector('.img-upload__preview'); //transform: scale(0.75).
+const imgPreview = document.querySelector('.img-upload__preview img'); //transform: scale(0.75).
 const VALUE_DEFAULT = 100;
 const STEP = 25;
 
@@ -47,4 +47,3 @@ biggerButton.addEventListener('click', onBiggerButtonClick);
 
 export { resetScale };
 
-// не возвращается форма с масштабом 100% только 55% как в разметке

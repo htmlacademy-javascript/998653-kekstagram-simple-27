@@ -53,7 +53,7 @@ const createPhoto = (index) => ({
   url: `photos/${index}.jpg`,
   description: getRandomElementArray(DESCRIPTON_PHOTO),
   likes: getRandomPositiveInteger(LIKES_COUNT.min, LIKES_COUNT.max),
-  comentcs: getRandomPositiveInteger(COMMENT_COUNT.min, COMMENT_COUNT.max),
+  comments: getRandomPositiveInteger(COMMENT_COUNT.min, COMMENT_COUNT.max),
 });
 
 const photosArr = Array.from({ length: ARRAY_LENGTH }, (curretValue, index) =>
@@ -111,4 +111,3 @@ const EFFECTS = [
 
 export { photosArr };
 export { EFFECTS };
-
