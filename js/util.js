@@ -1,4 +1,3 @@
-//модуль с утилитарными foo
 function getRandomPositiveInteger(a, b) {
   if (a < 0 || b < 0) {
     return NaN;
@@ -9,14 +8,9 @@ function getRandomPositiveInteger(a, b) {
   return Math.floor(result);
 }
 
-function checkStringLength(string, length) {
-  return string.length <= length;
-}
-
 const getRandomElementArray = (elements) =>
   elements[getRandomPositiveInteger(0, elements.length - 1)];
 
-// проверка, что кнопка Esc
 const isKeyDownEsc = (evt) => evt.keyCode === 27;
 
 const showAlert = (message) => {

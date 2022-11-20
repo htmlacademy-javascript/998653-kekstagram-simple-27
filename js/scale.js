@@ -20,7 +20,6 @@ const scaleImg = (value = VALUE_DEFAULT) => {
 };
 
 const onSmallerButtonClick = () => {
-  //значение из поля ввода инпута = всегда СТРОКА!
   const currentValue = parseInt(inputScaleValue.value, 10);
   let newValue = currentValue - STEP;
   if (newValue < STEP_VALUE.min) {
@@ -46,4 +45,3 @@ smallerButton.addEventListener('click', onSmallerButtonClick);
 biggerButton.addEventListener('click', onBiggerButtonClick);
 
 export { resetScale };
-

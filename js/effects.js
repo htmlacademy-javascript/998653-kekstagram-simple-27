@@ -7,9 +7,6 @@ const effectLevel = document.querySelector('.effect-level__value');
 const DEFAULT_EFFECT = EFFECTS[0];
 let chosenEffect = DEFAULT_EFFECT;
 const isDefault = () => chosenEffect === DEFAULT_EFFECT;
-
-//первоначальное(изначальное) значение слайдера по умолчанию?
-
 const updateSlider = () => {
   sliderElement.classList.remove('hidden');
   sliderElement.noUiSlider.updateOptions({
@@ -25,7 +22,6 @@ const updateSlider = () => {
   }
 };
 
-// переключение фильтров
 inputEffectRadio.addEventListener('change', () => {
   imgPreview.classList.add('effects__preview--chrome');
   effectLevel.value = '0';
@@ -36,7 +32,6 @@ const onFormChange = (evt) => {
     return;
   }
   chosenEffect = EFFECTS.find((effect) => effect.name === evt.target.value);
-  //imgPreview.classList.add(`effects__preview--${chosenEffect.name}`);
   updateSlider();
 };
 

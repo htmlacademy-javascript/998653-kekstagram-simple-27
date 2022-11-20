@@ -1,7 +1,6 @@
 const GETURL = 'https://27.javascript.pages.academy/kekstagram-simple/data';
 const SETURL = 'https://27.javascript.pages.academy/kekstagram-simple';
 
-// получим данные (загруженные фото) с удаленного сервера
 const getData = async (onSuccess, onFail) => {
   try {
     const response = await fetch(GETURL);

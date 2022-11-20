@@ -1,7 +1,6 @@
-import { isKeyDownEsc} from './util.js';
+import { isKeyDownEsc } from './util.js';
 import { resetScale } from './scale.js';
 import { updateSlider } from './effects.js';
-//import { sendData } from './api.js';
 import { resetEffects } from './effects.js';
 
 const form = document.querySelector('#upload-select-image');
@@ -9,6 +8,7 @@ const closeImgButton = document.querySelector('#upload-cancel');
 const body = document.querySelector('body');
 const imgEditForm = document.querySelector('.img-upload__overlay');
 const fileLoad = document.querySelector('#upload-file');
+const buttonSubmitElement = document.querySelector('.img-upload__submit');
 
 const resetForm = () => {
   form.reset();
@@ -17,19 +17,6 @@ const resetForm = () => {
 const resetFileLoad = () => {
   fileLoad.value = '';
 };
-
-/*const setUserFormSubmit = (onSuccess, evt) => {
-  evt.preventDefault();
-  sendData(
-    (() => {
-      onSuccess();
-    },
-    () => {
-      showAlert('Не удалось отправить форму. Попробуйте ещё раз');
-    },
-    new FormData(evt.target))
-  );
-};*/
 
 const openFormChangeImg = () => {
   body.classList.add('.modal-open');
@@ -48,6 +35,16 @@ const closeFormChangeImg = () => {
   document.removeEventListener('keydown', onEscKeyDown);
 };
 
+const blockSubmitButton = () => {
+  buttonSubmitElement.disabled = 'true';
+  buttonSubmitElement.textContent = 'Публикуется...';
+};
+
+const unBlockSubmitButton = () => {
+  buttonSubmitElement.disabled = 'false';
+  buttonSubmitElement.textContent = 'Опубликовать';
+};
+
 function onEscKeyDown(evt) {
   if (isKeyDownEsc(evt)) {
     evt.preventDefault();
@@ -64,19 +61,19 @@ closeImgButton.addEventListener('click', () => {
   closeFormChangeImg();
 });
 
+//Роман, мне все -таки кажется что эта foo должна быть ассинхронна
 const setOnFormSubmit = (cb) => {
   form.addEventListener('sumbit', async (evt) => {
     evt.preventDefault();
-    //блокировка кнопки  blockSubmitButton ()
+    blockSubmitButton();
     await cb(new FormData(evt.target));
-    // разблокировка кнопки blockSubmitButton()
+    unBlockSubmitButton();
   });
 };
 
 export {
   resetForm,
   resetFileLoad,
-  //setUserFormSubmit,
   openFormChangeImg,
   closeFormChangeImg,
   setOnFormSubmit,
