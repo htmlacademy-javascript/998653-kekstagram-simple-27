@@ -9,9 +9,6 @@ function getRandomPositiveInteger(a, b) {
   return Math.floor(result);
 }
 
-function checkStringLength(string, length) {
-  return string.length <= length;
-}
 const ARRAY_MIN = 1;
 const ARRAY_MAX = 25;
 const LIKES_MIN = 15;
@@ -52,32 +49,27 @@ for (let i = ARRAY_MIN - 1; i <= ARRAY_MAX - 1; i++) {
   arr[i] = arr.push(i);
 }
 
-createIdValue = () => {
-  arr.forEach((currentValue) => {
-    return currentValue;
-  });
+const createIdValue = () => {
+  arr.forEach((currentValue) => currentValue);
 };
-const id = createIdValue();
-console.log(id);
 
 // создаем функцию, которая будет возвращать случайный элемент из переданного в нее массива
-getRandomElementArray = (elements) => {
+function getRandomElementArray(elements) {
   return elements[getRandomPositiveInteger(0, elements.length - 1)];
-};
+}
 
 // функция для создания шаблона фотографии
-const createPhoto = () => {
-  return {
-    id: getRandomPositiveInteger(ARRAY_MIN, ARRAY_MAX),
-    url: `photos/${getRandomPositiveInteger(ARRAY_MIN, ARRAY_MAX)}.jpg`,
-    description: getRandomElementArray(DESCRIPTON_PHOTO),
-    likes: getRandomPositiveInteger(LIKES_MIN, LIKES_MAX),
-    coments: getRandomPositiveInteger(COMMENT_MIN, COMMENT_MAX),
-  };
-};
+const createPhoto = () => ({
+  id: getRandomPositiveInteger(ARRAY_MIN, ARRAY_MAX),
+  url: `photos/${getRandomPositiveInteger(ARRAY_MIN, ARRAY_MAX)}.jpg`,
+  description: getRandomElementArray(DESCRIPTON_PHOTO),
+  likes: getRandomPositiveInteger(LIKES_MIN, LIKES_MAX),
+  coments: getRandomPositiveInteger(COMMENT_MIN, COMMENT_MAX),
+});
 
 //создадим 25 элементов массива с фото . Используем метод Aray.from. Первый аргумент - итерируемый объект, который будет преоразован в массив. Второй - функция, которая будет вызвана для каждого элемента массива. Генерируем последовательность объектов.
-const createPhotosArr = Array.from({ length: ARRAY_LENGTH }, createPhoto); //почему не createPhoto()??
+
+const createPhotosArr = Array.from({ length: ARRAY_LENGTH }, createPhoto);
 
 //или РАЗОБРАТЬ ПОЧЕМУ НЕ СРАБОТАЛО
 const PhotosFor = [];
