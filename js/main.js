@@ -4,6 +4,3 @@ const getRandomPositiveInteger = (a, b) => {
   const result = Math.random() * (upper - lower + 1) + lower;
   return Math.floor(result);
 };
-
-const getRandomArrayElements = (element) =>
-  element[getRandomPositiveInteger(0, element.length - 1)];
