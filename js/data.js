@@ -1,13 +1,3 @@
-// модуль для генерации временных данных
-
-import { getRandomElementArray } from "./util.js";
-import { getRandomPositiveInteger } from "./util.js";
-
-const ARRAY_COUNT = {
-  min: 1,
-  max: 25,
-};
-
 const LIKES_COUNT = {
   min: 15,
   max: 200,
