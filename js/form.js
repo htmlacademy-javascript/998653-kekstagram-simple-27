@@ -61,12 +61,11 @@ closeImgButton.addEventListener('click', () => {
   closeFormChangeImg();
 });
 
-//Роман, мне все -таки кажется что эта foo должна быть ассинхронна
 const setOnFormSubmit = (cb) => {
-  form.addEventListener('sumbit', async (evt) => {
+  form.addEventListener('submit', (evt) => {
     evt.preventDefault();
     blockSubmitButton();
-    await cb(new FormData(evt.target));
+    cb(new FormData(evt.target));
     unBlockSubmitButton();
   });
 };

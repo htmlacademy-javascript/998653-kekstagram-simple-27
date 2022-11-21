@@ -14,7 +14,7 @@ const updateSlider = () => {
       min: chosenEffect.min,
       max: chosenEffect.max,
     },
-    start: chosenEffect.min,
+    start: chosenEffect.max,
     step: chosenEffect.step,
   });
   if (isDefault()) {
