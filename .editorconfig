@@ -18,8 +18,4 @@ indent_size = 2
 end_of_line = lf
 trim_trailing_whitespace = true
 insert_final_newline = true
-<<<<<<< HEAD
 singleQuote = true
-=======
-quote_type = single
->>>>>>> 03de024f36c9da2312eef85db21b5e273cbfa172
