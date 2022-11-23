@@ -32,7 +32,7 @@ const showAlert = (message) => {
 
   setTimeout(() => {
     alertContainer.remove();
-  }, 2000);
+  }, 3000);
 };
 
 export { getRandomPositiveInteger };
