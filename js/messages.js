@@ -29,6 +29,7 @@ const onButtonErrorClick = () => {
 
 const onOverlayClickSucsess = () => {
   hideMessage();
+  closeFormChangeImg();
 };
 
 const onOverlayClickError = () => {

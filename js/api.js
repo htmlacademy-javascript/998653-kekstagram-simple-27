@@ -1,6 +1,6 @@
 const RECEIVING_URL =
   'https://27.javascript.pages.academy/kekstagram-simple/data';
-const SENDING_URL = 'https://27.javascript.pages.academy/kekstagram-simple/1';
+const SENDING_URL = 'https://27.javascript.pages.academy/kekstagram-simple/';
 
 const getData = async (onSuccess, onFail) => {
   try {
