@@ -46,7 +46,7 @@ const unBlockSubmitButton = () => {
 };
 
 function onEscKeyDown(evt) {
-  if (isKeyDownEsc(evt)) {
+  if (isKeyDownEsc(evt) && !document.querySelector('.error')) {
     evt.preventDefault();
 
     closeFormChangeImg();
