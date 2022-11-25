@@ -41,8 +41,8 @@ const blockSubmitButton = () => {
 };
 
 const unBlockSubmitButton = () => {
-  buttonSubmitElement.disabled = 'false';
   buttonSubmitElement.textContent = 'Опубликовать';
+  buttonSubmitElement.removeAttribute('disabled');
 };
 
 function onEscKeyDown(evt) {
@@ -75,5 +75,7 @@ export {
   resetFileLoad,
   openFormChangeImg,
   closeFormChangeImg,
+  blockSubmitButton,
+  unBlockSubmitButton,
   setOnFormSubmit,
 };

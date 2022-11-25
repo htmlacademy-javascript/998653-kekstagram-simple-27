@@ -1,5 +1,5 @@
 const GETURL = 'https://27.javascript.pages.academy/kekstagram-simple/data';
-const SETURL = 'https://27.javascript.pages.academy/kekstagram-simple';
+const SETURL = 'https://27.javascript.pages.academy/kekstagram-simple/';
 
 const getData = async (onSuccess, onFail) => {
   try {
