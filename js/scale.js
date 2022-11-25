@@ -2,8 +2,8 @@
 
 //При нажатии на кнопки .scale__control--smaller и .scale__control--bigger должно изменяться значение поля .scale__control--value;
 
-const smallerButton = document.querySelector('.scale__control--smaller');
-const biggerButton = document.querySelector('.scale__control--bigger');
+const smallButton = document.querySelector('.scale__control--smaller');
+const bigButton = document.querySelector('.scale__control--bigger');
 const inputScaleValue = document.querySelector('.scale__control--value');
 const imgPreview = document.querySelector('.img-upload__preview img'); //transform: scale(0.75).
 const VALUE_DEFAULT = 100;
@@ -19,7 +19,7 @@ const scaleImg = (value = VALUE_DEFAULT) => {
   inputScaleValue.value = `${value}%`;
 };
 
-const onSmallerButtonClick = () => {
+const onSmallButtonClick = () => {
   const currentValue = parseInt(inputScaleValue.value, 10);
   let newValue = currentValue - STEP;
   if (newValue < STEP_VALUE.min) {
@@ -28,7 +28,7 @@ const onSmallerButtonClick = () => {
   scaleImg(newValue);
 };
 
-const onBiggerButtonClick = () => {
+const onbigButtonClick = () => {
   const currentValue = parseInt(inputScaleValue.value, 10);
   let newValue = currentValue + STEP;
   if (newValue > STEP_VALUE.max) {
@@ -41,7 +41,7 @@ const resetScale = () => {
   scaleImg();
 };
 
-smallerButton.addEventListener('click', onSmallerButtonClick);
-biggerButton.addEventListener('click', onBiggerButtonClick);
+smallButton.addEventListener('click', onSmallButtonClick);
+bigButton.addEventListener('click', onbigButtonClick);
 
 export { resetScale };

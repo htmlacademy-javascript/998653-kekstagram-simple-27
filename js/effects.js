@@ -2,13 +2,16 @@ import { EFFECTS } from './data.js';
 const form = document.querySelector('.img-upload__form');
 const inputEffectRadio = document.querySelector('.effects__radio');
 const imgPreview = document.querySelector('img');
+const sliderContainer = document.querySelector('.effect-level');
 const sliderElement = document.querySelector('.effect-level__slider');
 const effectLevel = document.querySelector('.effect-level__value');
 const DEFAULT_EFFECT = EFFECTS[0];
 let chosenEffect = DEFAULT_EFFECT;
+
 const isDefault = () => chosenEffect === DEFAULT_EFFECT;
+
 const updateSlider = () => {
-  sliderElement.classList.remove('hidden');
+  sliderContainer.classList.remove('hidden');
   sliderElement.noUiSlider.updateOptions({
     range: {
       min: chosenEffect.min,
@@ -18,7 +21,7 @@ const updateSlider = () => {
     step: chosenEffect.step,
   });
   if (isDefault()) {
-    sliderElement.classList.add('hidden');
+    sliderContainer.classList.add('hidden');
   }
 };
 

@@ -4,7 +4,7 @@ import { updateSlider } from './effects.js';
 import { resetEffects } from './effects.js';
 
 const form = document.querySelector('#upload-select-image');
-const closeImgButton = document.querySelector('#upload-cancel');
+const imgButton = document.querySelector('#upload-cancel');
 const body = document.querySelector('body');
 const imgEditForm = document.querySelector('.img-upload__overlay');
 const fileLoad = document.querySelector('#upload-file');
@@ -41,12 +41,12 @@ const blockSubmitButton = () => {
 };
 
 const unBlockSubmitButton = () => {
-  buttonSubmitElement.disabled = 'false';
   buttonSubmitElement.textContent = 'Опубликовать';
+  buttonSubmitElement.removeAttribute('disabled');
 };
 
 function onEscKeyDown(evt) {
-  if (isKeyDownEsc(evt)) {
+  if (isKeyDownEsc(evt) && !document.querySelector('.error')) {
     evt.preventDefault();
 
     closeFormChangeImg();
@@ -57,7 +57,7 @@ fileLoad.addEventListener('change', () => {
   openFormChangeImg();
 });
 
-closeImgButton.addEventListener('click', () => {
+imgButton.addEventListener('click', () => {
   closeFormChangeImg();
 });
 
@@ -75,5 +75,7 @@ export {
   resetFileLoad,
   openFormChangeImg,
   closeFormChangeImg,
+  blockSubmitButton,
+  unBlockSubmitButton,
   setOnFormSubmit,
 };
