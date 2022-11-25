@@ -1,9 +1,10 @@
-const GETURL = 'https://27.javascript.pages.academy/kekstagram-simple/data';
-const SETURL = 'https://27.javascript.pages.academy/kekstagram-simple/';
+const RECEIVING_URL =
+  'https://27.javascript.pages.academy/kekstagram-simple/data';
+const SENDING_URL = 'https://27.javascript.pages.academy/kekstagram-simple/';
 
 const getData = async (onSuccess, onFail) => {
   try {
-    const response = await fetch(GETURL);
+    const response = await fetch(RECEIVING_URL);
     if (!response.ok) {
       throw new Error('Не удалось получить данные!');
     }
@@ -17,7 +18,7 @@ const getData = async (onSuccess, onFail) => {
 
 const sendData = async (onSuccess, onFail, body) => {
   try {
-    const response = await fetch(SETURL, {
+    const response = await fetch(SENDING_URL, {
       method: 'POST',
       body,
     });
