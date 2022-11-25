@@ -1,16 +1,3 @@
-function getRandomPositiveInteger(a, b) {
-  if (a < 0 || b < 0) {
-    return NaN;
-  }
-  const lower = Math.ceil(Math.min(a, b));
-  const upper = Math.floor(Math.max(a, b));
-  const result = Math.random() * (upper - lower + 1) + lower;
-  return Math.floor(result);
-}
-
-const getRandomElementArray = (elements) =>
-  elements[getRandomPositiveInteger(0, elements.length - 1)];
-
 const isKeyDownEsc = (evt) => evt.keyCode === 27;
 
 const showAlert = (message) => {
@@ -34,8 +21,5 @@ const showAlert = (message) => {
     alertContainer.remove();
   }, 3000);
 };
-
-export { getRandomPositiveInteger };
-export { getRandomElementArray };
 export { isKeyDownEsc };
 export { showAlert };

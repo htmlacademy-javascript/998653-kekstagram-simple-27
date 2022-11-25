@@ -4,7 +4,7 @@ import { updateSlider } from './effects.js';
 import { resetEffects } from './effects.js';
 
 const form = document.querySelector('#upload-select-image');
-const closeImgButton = document.querySelector('#upload-cancel');
+const imgButton = document.querySelector('#upload-cancel');
 const body = document.querySelector('body');
 const imgEditForm = document.querySelector('.img-upload__overlay');
 const fileLoad = document.querySelector('#upload-file');
@@ -57,7 +57,7 @@ fileLoad.addEventListener('change', () => {
   openFormChangeImg();
 });
 
-closeImgButton.addEventListener('click', () => {
+imgButton.addEventListener('click', () => {
   closeFormChangeImg();
 });
 
